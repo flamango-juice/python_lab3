@@ -45,12 +45,24 @@ In this part, you'll create several basic functions to handle user input and dat
 Now that you have user inputs ready, you’ll move to handling peer-to-peer communication using the [lab_chat.py](lab_chat.py) code. In this file, there are some preexisting functions to connect/become a peer-to-peer node, join a chat group, and get a communication channel to send and receive messages. Your job is to identify these functions and their parts, then integrate these functions into your functions.
 
 * In your project create a **README.md** file
-* For each function in the [lab_chat.py](lab_chat.py) file add the following to your **README.md** file:
-  1. Full Function Header, and indicate the function name with a comment.
-  ```python
-  # Example
-  def chat_task(ctx, pipe, n, group):  # function name is chat_task
-  ```
+  * For each function in the [lab_chat.py](lab_chat.py) file add the following to your **README.md** file:
+    1. Full Function Header, and indicate the function name with a comment.
+    ```python
+    # Example
+    def chat_task(ctx, pipe, n, group): # function name is chat_task
+        # Returns nothing.
+    def get_peer_node(username): # function name is get_peer_node
+        # username: username. 
+        # This function returns something that looks like a pyre node.
+    def join_group(node, group):  # function name is join_group
+        # node: peer-to-peer node.
+        # group. peer chat group I want to join.
+        # This function returns nothing.
+    def get_channel(node, group): # function name is get_channel
+        # node: peer-to-peer node my chat app is connected.
+        # group: peer chat group I want to join
+        # Returns zhelper.zthread_fork(ctx, chat_task, n=node, group=group) I don't know how it functions.
+    ```
   2. List all parameters and what you think they are. Put "UNSURE" if you don't have a guess.
   ```shell
   # Example
@@ -58,12 +70,12 @@ Now that you have user inputs ready, you’ll move to handling peer-to-peer comm
   pipe: This is a communications pipe polled by ZeroMQ for messages.
   n: This is the peer to peer node my chat app is connected as
   group: This is the peer chat group I wanted to join
-  ```
-  3. Note if the function **returns** anything. If it does, note what you believe it returns, and make a final note about what you believe the function may do.
-  ```shell
-  # Example
-  The chat_task method does not return anything, it appears to be the send/recieve manager.
-  ```
+  ````
+    3. Note if the function **returns** anything. If it does, note what you believe it returns, and make a final note about what you believe the function may do.
+```shell
+# Example
+The chat_task method does not return anything, it appears to be the send/recieve manager.
+```
 
 ## Combining the Functions to Create the Peer-to-Peer Chat
 In this part, you will combine all the functions from Part 1 and Part 2 to create a functioning peer-to-peer chat.
